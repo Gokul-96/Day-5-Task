@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+2. Own resume data in JSON Format:
+
+ {Let About:{
+    name: "Gokulakrishnan M",
+    email: "gokulakrishnan.m96@gmail.com",
+    phone: "7200607680",
+    Married: False,
+    location: {
+    address: "123 house street",
+    postalCode: 638051,
+    city: "Erode",
+    }
+  },
+  Work:[
+    {
+      company: "VR Automation and Solutions",
+      position: "Vision Engineer",
+      Details: "Machine vision application engineer"
+  : ,
+      
+    }
+  ],
+  Education:[
+    {
+      institution: "KVM",
+      area: "Erode",
+      courses: [ "SSLC"]
+    }
+  ],
+
+ 
+  languages:[
+    {
+      language: ["Tamil","English"]
+      fluency: "Tamil"
+    }
+  ],
+  interests:[
+    {
+      name: "Sports",
+      keywords: [
+        "Cricket","Golf"]
+    }
+  ] }
+
+
+JSON Iterate for loops(for,for in,for of, for Each)
+
+
+
+ 
+ <script>
+
+
+            function handleData(){
+                let data = JSON.parse(this.responseText)
+                console.log(data)
+                for(let i=0;i<data.length;i++)
+                {
+                       console.log(data[i].maps.googleMaps,data[i].startOfWeek)
+                }
+
+
+                for(i in data)
+                {
+                    console.log(data[i].name.common)
+                }
+
+
+                for(t of data)
+                {
+                    console.log(t.region,t.population)
+                }
+
+
+                data.forEach(function(name) {
+                console.log(name);
+                });
+
+
+            }
+
+
+            const req = new XMLHttpRequest();
+            req.addEventListener('load',handleData)
+            req.open("GET","https://restcountries.com/v3.1/all")
+            req.send()
+        </script>
+</body>
+</html>
